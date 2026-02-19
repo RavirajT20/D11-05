@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agri-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: agri
+  template:
+    metadata:
+      labels:
+        app: agri
+    spec:
+      containers:
+      - name: agri-container
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
